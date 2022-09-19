@@ -3,8 +3,19 @@ const app = express();
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
-
 const PORT = 3000;
+const mongoose = require("mongoose");
+require("dotenv").config();
+
+// DB接続
+mongoose
+  .connect(process.env.MONGODB_URL)
+  .then(() => {
+    console.log("DBと接続中...");
+  })
+  .catch((err) => {
+    console.log("error");
+  });
 
 // ミドルウェア
 app.use("/api/users", userRoute);
