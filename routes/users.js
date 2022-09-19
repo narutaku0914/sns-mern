@@ -15,12 +15,35 @@ router.put("/:id", async (req, res) => {
   } else {
     return res
       .status(403)
-      .json("あなたはこのアカウントを更新する権限はありません。");
+      .json("あなたはこのユーザーを更新する権限はありません。");
   }
 });
 
-router.get("/", (req, res) => {
-  res.send("uer router");
+// delete
+router.delete("/:id", async (req, res) => {
+  if (req.body.isAdmin || req.body.userId === req.params.id) {
+    try {
+      const user = await User.findByIdAndDelete(req.params.id);
+      return res.status(200).json("ユーザー情報が削除されました。");
+    } catch (err) {
+      return res.status(500).json(err);
+    }
+  } else {
+    return res
+      .status(403)
+      .json("あなたはこのユーザーを削除する権限はありません。");
+  }
+});
+
+// get
+router.get("/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    const { password, updatedAt, ...other } = user._doc;
+    return res.status(200).json(other);
+  } catch (err) {
+    return res.status(500).json(err);
+  }
 });
 
 module.exports = router;
