@@ -46,7 +46,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// user follow
+// ユーザーフォロー
 router.put("/:id/follow", async (req, res) => {
   if (req.body.userId !== req.params.id) {
     try {
@@ -71,7 +71,36 @@ router.put("/:id/follow", async (req, res) => {
       return res.status(500).json(err);
     }
   } else {
-    return res.status(500).json("フォローできません。");
+    return res.status(500).json("自身をフォローできません。");
+  }
+});
+
+// フォロー解除
+router.put("/:id/unfollow", async (req, res) => {
+  if (req.body.userId !== req.params.id) {
+    try {
+      const unfollowee = await User.findById(req.params.id);
+      const currentUser = await User.findById(req.body.userId);
+      if (unfollowee.followers.includes(req.body.userId)) {
+        await unfollowee.updateOne({
+          $pull: {
+            followers: req.body.userId,
+          },
+        });
+        await currentUser.updateOne({
+          $pull: {
+            followings: req.params.id,
+          },
+        });
+        return res.status(200).json("フォロー解除しました。");
+      } else {
+        return res.status(403).json("元々フォローしていません。");
+      }
+    } catch (err) {
+      return res.status(500).json(err);
+    }
+  } else {
+    return res.status(500).json("自身をフォローできません。");
   }
 });
 
