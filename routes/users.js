@@ -5,7 +5,7 @@ const User = require("../models/User");
 router.put("/:id", async (req, res) => {
   if (req.body.isAdmin || req.body.userId === req.params.id) {
     try {
-      const user = await User.findByIdAndUpdate(req.params.id, {
+      const updateUser = await User.findByIdAndUpdate(req.params.id, {
         $set: req.body,
       });
       return res.status(200).json("ユーザー情報が更新されました。");
@@ -23,7 +23,7 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   if (req.body.isAdmin || req.body.userId === req.params.id) {
     try {
-      const user = await User.findByIdAndDelete(req.params.id);
+      const deleteUser = await User.findByIdAndDelete(req.params.id);
       return res.status(200).json("ユーザー情報が削除されました。");
     } catch (err) {
       return res.status(500).json(err);
