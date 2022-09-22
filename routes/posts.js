@@ -58,4 +58,28 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// 投稿にいいね、既にしていたら取り消す
+router.put("/:id/like", async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post.likes.includes(req.body.userId)) {
+      await post.updateOne({
+        $push: {
+          likes: req.body.userId,
+        },
+      });
+      return res.status(200).json("投稿にいいねをしました。");
+    } else {
+      await post.updateOne({
+        $pull: {
+          likes: req.body.userId,
+        },
+      });
+      return res.status(403).json("この投稿へのいいねを取り消しました。");
+    }
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+});
+
 module.exports = router;
