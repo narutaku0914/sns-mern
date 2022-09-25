@@ -1,3 +1,6 @@
+import { Avatar, Input } from "@mantine/core";
+import { IconMessage, IconNotification, IconSearch } from "@tabler/icons";
+
 export const Topbar = () => {
   return (
     <div className="topbarContainer">
@@ -6,14 +9,24 @@ export const Topbar = () => {
       </div>
       <div className="topbarCenter">
         <div className="serchbar">
-          <input type="text" className="serachInput" placeholder="Search" />
+          <Input
+            icon={<IconSearch size={16} />}
+            placeholder="Search"
+            radius="xl"
+          />
         </div>
       </div>
       <div className="topbarRight">
-        <div className="iconItem">1</div>
-        <div className="iconItem">2</div>
+        <div className="iconItem">
+          <IconMessage />
+          <span className="topbarIconBadge">1</span>
+        </div>
+        <div className="iconItem">
+          <IconNotification />
+          <span className="topbarIconBadge">2</span>
+        </div>
       </div>
-      <img src="" alt="" />
+      <Avatar src="/assets/person/1.jpeg" />
     </div>
   );
 };
