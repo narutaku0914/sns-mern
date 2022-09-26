@@ -21,12 +21,12 @@ export const Topbar = () => {
         <div className="iconItems">
           <div className="iconItem">
             <Indicator label={2} inline size={20} color="red">
-              <i class="fa-regular fa-message fa-xl"></i>
+              <i class="fa-solid fa-message fa-xl"></i>
             </Indicator>
           </div>
           <div className="iconItem">
             <Indicator label={1} inline size={20} color="red">
-              <i className="fa-regular fa-bell fa-xl"></i>
+              <i className="fa-solid fa-bell fa-xl"></i>
             </Indicator>
           </div>
         </div>
