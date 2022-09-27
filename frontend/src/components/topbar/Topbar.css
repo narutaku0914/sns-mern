@@ -37,14 +37,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 10px;
+  margin: 0 20px;
 }
 
 .iconItem {
   cursor: pointer;
-  margin: 0 10px;
+  margin: 0 20px;
 }
 
-.iconItem {
-  display: flex;
+i {
+  font-size: 30px;
+  padding: 0;
+}
+
+.userIconImg {
+  border-radius: 50px;
 }
