@@ -1,4 +1,5 @@
 import { Avatar } from "@mantine/core";
+import "./Leftbar.css";
 
 export const Leftbar = () => {
   return (
@@ -37,7 +38,15 @@ export const Leftbar = () => {
         <hr></hr>
         <ul className="leftbarFriendList">
           <li className="leftbarFriend">
-            <Avatar src="/assets/person/2.jpeg" />
+            <Avatar src="/assets/person/2.jpeg" className="leftbarFriendImg" />
+            <span className="leftbarFriendName">ああああ</span>
+          </li>
+          <li className="leftbarFriend">
+            <Avatar src="/assets/person/2.jpeg" className="leftbarFriendImg" />
+            <span className="leftbarFriendName">ああああ</span>
+          </li>
+          <li className="leftbarFriend">
+            <Avatar src="/assets/person/2.jpeg" className="leftbarFriendImg" />
             <span className="leftbarFriendName">ああああ</span>
           </li>
         </ul>
