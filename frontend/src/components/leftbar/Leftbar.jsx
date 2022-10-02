@@ -1,4 +1,5 @@
-import { Avatar } from "@mantine/core";
+import { Users } from "../../dummyData";
+import { Friend } from "../friend/Friend";
 import "./Leftbar.css";
 
 export const Leftbar = () => {
@@ -37,18 +38,9 @@ export const Leftbar = () => {
         </ul>
         <hr></hr>
         <ul className="leftbarFriendList">
-          <li className="leftbarFriend">
-            <Avatar src="/assets/person/2.jpeg" className="leftbarFriendImg" />
-            <span className="leftbarFriendName">ああああ</span>
-          </li>
-          <li className="leftbarFriend">
-            <Avatar src="/assets/person/2.jpeg" className="leftbarFriendImg" />
-            <span className="leftbarFriendName">ああああ</span>
-          </li>
-          <li className="leftbarFriend">
-            <Avatar src="/assets/person/2.jpeg" className="leftbarFriendImg" />
-            <span className="leftbarFriendName">ああああ</span>
-          </li>
+          {Users.map((user) => (
+            <Friend key={user.id} user={user} />
+          ))}
         </ul>
       </div>
     </div>

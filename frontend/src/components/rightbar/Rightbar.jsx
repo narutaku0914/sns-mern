@@ -1,4 +1,5 @@
-import { Avatar, Indicator } from "@mantine/core";
+import { Users } from "../../dummyData";
+import { Online } from "../online/Online";
 import "./Rightbar.css";
 
 export const Rightbar = () => {
@@ -14,57 +15,9 @@ export const Rightbar = () => {
         <img src="/assets/ad.jpeg" alt="" className="eventImg" />
         <h4 className="rightbarTitle">オンラインの友達</h4>
         <ul className="rightbarFriendList">
-          <li className="rightbarFriend">
-            <Indicator
-              dot
-              inline
-              size={15}
-              color="purple"
-              position="top-start"
-              offset={3}
-              withBorder
-            >
-              <Avatar
-                src="/assets/person/2.jpeg"
-                className="rightbarFriendImg"
-              />
-            </Indicator>
-            <span className="rightbarFriendName">ああああ</span>
-          </li>
-          <li className="rightbarFriend">
-            <Indicator
-              dot
-              inline
-              size={15}
-              color="purple"
-              position="top-start"
-              offset={3}
-              withBorder
-            >
-              <Avatar
-                src="/assets/person/3.jpeg"
-                className="rightbarFriendImg"
-              />
-            </Indicator>
-            <span className="rightbarFriendName">ああああ</span>
-          </li>
-          <li className="rightbarFriend">
-            <Indicator
-              dot
-              inline
-              size={15}
-              color="purple"
-              position="top-start"
-              offset={3}
-              withBorder
-            >
-              <Avatar
-                src="/assets/person/2.jpeg"
-                className="rightbarFriendImg"
-              />
-            </Indicator>
-            <span className="rightbarFriendName">ああああ</span>
-          </li>
+          {Users.map((user) => (
+            <Online key={user.id} user={user} />
+          ))}
         </ul>
       </div>
     </div>
