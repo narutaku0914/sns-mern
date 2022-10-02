@@ -1,9 +1,18 @@
 import { Avatar } from "@mantine/core";
+import { useState } from "react";
 import { Users } from "../../dummyData";
 import "./Post.css";
 
 export const Post = ({ post }) => {
   const user = Users.filter((user) => user.id === post.userId)[0];
+
+  const [like, setLike] = useState(post.like);
+  const [isLiked, setIsLiked] = useState(false);
+
+  const handleLike = () => {
+    setLike(isLiked ? like - 1 : like + 1);
+    setIsLiked(!isLiked);
+  };
 
   return (
     <div className="post">
@@ -24,8 +33,8 @@ export const Post = ({ post }) => {
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
-            <i className="fa-solid fa-heart"></i>
-            <span className="postLikeCounter">{post.like}人のいいね</span>
+            <i className="fa-solid fa-heart" onClick={() => handleLike()}></i>
+            <span className="postLikeCounter">{like}人のいいね</span>
           </div>
           <div className="postBottomRight">
             <span className="postCommentCounter">
