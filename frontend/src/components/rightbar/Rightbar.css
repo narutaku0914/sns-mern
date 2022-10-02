@@ -1,3 +1,49 @@
 .rightbar {
   flex: 3.5;
 }
+
+.rightbarWrapper {
+  padding: 20px 20px 0 0;
+}
+
+.eneventContainer {
+  display: flex;
+  align-items: center;
+}
+
+.starImg {
+  width: 40px;
+  height: 40px;
+  margin-right: 40px;
+}
+
+.eventText {
+  font-size: 15px;
+}
+
+.eventImg {
+  width: 100%;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.rightbarTitle {
+  margin-bottom: 20px;
+}
+
+.rightbarFriend {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.rightbarFriendImg {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.rightbarFriendName {
+  margin: 0 10px;
+  font-size: 15px;
+  font-weight: 550;
+}
