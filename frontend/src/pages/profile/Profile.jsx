@@ -19,7 +19,12 @@ export const Profile = () => {
                 alt=""
                 className="profileCoverImg"
               />
-              <Avatar src="/assets/person/1.jpeg" />
+              <Avatar
+                src="/assets/person/1.jpeg"
+                radius={500}
+                size={150}
+                className="profileUserImg"
+              />
             </div>
             <div className="profileInfo">
               <h4 className="profileInfoName">narutaku</h4>
