@@ -30,7 +30,7 @@ export const Topbar = () => {
             </Indicator>
           </div>
         </div>
-        <Avatar src="/assets/person/1.jpeg" className="userIconImg" />
+        <Avatar src="/assets/person/1.jpeg" radius={500} />
       </div>
     </div>
   );
