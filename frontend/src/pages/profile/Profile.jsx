@@ -33,7 +33,7 @@ export const Profile = () => {
           </div>
           <div className="profileRightBottom">
             <Timeline />
-            <Rightbar />
+            <Rightbar profile />
           </div>
         </div>
       </div>
