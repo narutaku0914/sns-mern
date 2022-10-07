@@ -9,6 +9,7 @@ import {
   Container,
   Group,
   Button,
+  Title,
 } from "@mantine/core";
 
 export const Login = () => {
@@ -20,11 +21,24 @@ export const Login = () => {
           <span className="logoDescription">Real SNS</span>
         </div>
         <div className="loginRight">
-          <Container>
+          <Container size="xl" mx={30}>
+            <Title
+              align="center"
+              sx={(theme) => ({
+                fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+                fontWeight: 700,
+              })}
+            >
+              ログイン
+            </Title>
             <Paper withBorder shadow="md" p={40} mt={50} radius="md">
-              <TextInput label="Email" placeholder="you@mantine.dev" required />
+              <TextInput
+                label="Eメールアドレス"
+                placeholder="you@mantine.dev"
+                required
+              />
               <PasswordInput
-                label="Password"
+                label="パスワード"
                 placeholder="Your password"
                 required
                 mt="md"
@@ -40,7 +54,7 @@ export const Login = () => {
                 </Anchor>
               </Group>
               <Button fullWidth mt="xl">
-                Sign in
+                サインイン
               </Button>
             </Paper>
             <Text color="dimmed" size="sm" align="center" mt={5}>
