@@ -14,12 +14,17 @@ export const Post = ({ post }) => {
     setIsLiked(!isLiked);
   };
 
+  const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
+
   return (
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <Avatar src={user.profilePicture} className="postProfileImg" />
+            <Avatar
+              src={PUBLIC_FOLDER + user.profilePicture}
+              className="postProfileImg"
+            />
             <span className="postUserName">{user.username}</span>
             <span className="postDate">{post.date}</span>
           </div>

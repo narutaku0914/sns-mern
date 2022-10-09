@@ -1,12 +1,14 @@
 import { Avatar, Indicator } from "@mantine/core";
 
 export const Online = ({ user, profile }) => {
+  const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
+
   return (
     <>
       {profile ? (
         <li className="rightbarFollowing">
           <Avatar
-            src={user.profilePicture}
+            src={PUBLIC_FOLDER + user.profilePicture}
             size={80}
             className="rightbarFollowingImg"
           />
@@ -23,7 +25,10 @@ export const Online = ({ user, profile }) => {
             offset={3}
             withBorder
           >
-            <Avatar src={user.profilePicture} className="rightbarFriendImg" />
+            <Avatar
+              src={PUBLIC_FOLDER + user.profilePicture}
+              className="rightbarFriendImg"
+            />
           </Indicator>
           <span className="rightbarFriendName">{user.username}</span>
         </li>
