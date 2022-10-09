@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Users } from "../../dummyData";
 import { Friend } from "../friend/Friend";
 import "./Leftbar.css";
@@ -9,7 +10,9 @@ export const Leftbar = () => {
         <ul className="leftbarList">
           <li className="leftbarListItem">
             <i class="fa-solid fa-house"></i>
-            <span className="leftbarListItemText">ホーム</span>
+            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+              <span className="leftbarListItemText">ホーム</span>
+            </Link>
           </li>
           <li className="leftbarListItem">
             <i className="fa-solid fa-magnifying-glass"></i>
@@ -29,7 +32,12 @@ export const Leftbar = () => {
           </li>
           <li className="leftbarListItem">
             <i class="fa-solid fa-user"></i>
-            <span className="leftbarListItemText">プロフィール</span>
+            <Link
+              to="/profile/:username"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <span className="leftbarListItemText">プロフィール</span>
+            </Link>
           </li>
           <li className="leftbarListItem">
             <i class="fa-solid fa-gear"></i>
