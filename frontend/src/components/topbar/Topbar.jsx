@@ -1,4 +1,5 @@
 import { Avatar, Indicator, Input } from "@mantine/core";
+import { Link } from "react-router-dom";
 // import { IconMessage, IconNotification, IconSearch } from "@tabler/icons";
 import "./Topbar.css";
 
@@ -6,7 +7,9 @@ export const Topbar = () => {
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
-        <span className="logo">MERN</span>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <span className="logo">MERN</span>
+        </Link>
       </div>
       <div className="topbarCenter">
         <div className="serchbar">
