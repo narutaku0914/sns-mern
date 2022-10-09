@@ -9,7 +9,7 @@ export const Leftbar = () => {
       <div className="" leftbarWrapper>
         <ul className="leftbarList">
           <li className="leftbarListItem">
-            <i class="fa-solid fa-house"></i>
+            <i className="fa-solid fa-house"></i>
             <Link to="/" style={{ textDecoration: "none", color: "black" }}>
               <span className="leftbarListItemText">ホーム</span>
             </Link>
@@ -31,7 +31,7 @@ export const Leftbar = () => {
             <span className="leftbarListItemText">ブックマーク</span>
           </li>
           <li className="leftbarListItem">
-            <i class="fa-solid fa-user"></i>
+            <i className="fa-solid fa-user"></i>
             <Link
               to="/profile/:username"
               style={{ textDecoration: "none", color: "black" }}
@@ -40,7 +40,7 @@ export const Leftbar = () => {
             </Link>
           </li>
           <li className="leftbarListItem">
-            <i class="fa-solid fa-gear"></i>
+            <i className="fa-solid fa-gear"></i>
             <span className="leftbarListItemText">設定</span>
           </li>
         </ul>
