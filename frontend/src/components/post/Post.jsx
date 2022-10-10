@@ -1,20 +1,26 @@
 import { Avatar } from "@mantine/core";
-import { useState } from "react";
-import { Users } from "../../dummyData";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "./Post.css";
 
 export const Post = ({ post }) => {
-  const user = Users.filter((user) => user.id === post.userId)[0];
-
-  const [like, setLike] = useState(post.like);
+  const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
+  const [user, setUser] = useState({});
+  const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const response = await axios.get(`/users/${post.userId}`);
+      setUser(response.data);
+    };
+    fetchUser();
+  }, [post.userId]);
 
   const handleLike = () => {
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };
-
-  const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
 
   return (
     <div className="post">
@@ -23,18 +29,19 @@ export const Post = ({ post }) => {
           <div className="postTopLeft">
             <Avatar
               src={PUBLIC_FOLDER + user.profilePicture}
+              alt=""
               className="postProfileImg"
             />
             <span className="postUserName">{user.username}</span>
-            <span className="postDate">{post.date}</span>
+            <span className="postDate">{post.updatedAt}</span>
           </div>
           <div className="postTopRight">
             <i className="fa-solid fa-ellipsis-vertical"></i>
           </div>
         </div>
         <div className="postCenter">
-          <span className="postText">{post.desc}</span>
-          <img src={post.photo} alt="" className="postImg" />
+          <span className="postText">{post.description}</span>
+          <img src={PUBLIC_FOLDER + post.img} alt="" className="postImg" />
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">

@@ -24,7 +24,7 @@ export const Topbar = () => {
         <div className="iconItems">
           <div className="iconItem">
             <Indicator label={2} inline size={20} color="red">
-              <i class="fa-solid fa-message"></i>
+              <i className="fa-solid fa-message"></i>
             </Indicator>
           </div>
           <div className="iconItem">

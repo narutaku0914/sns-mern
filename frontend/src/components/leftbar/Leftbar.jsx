@@ -6,7 +6,7 @@ import "./Leftbar.css";
 export const Leftbar = () => {
   return (
     <div className="leftbar">
-      <div className="" leftbarWrapper>
+      <div className="leftbarWrapper">
         <ul className="leftbarList">
           <li className="leftbarListItem">
             <i className="fa-solid fa-house"></i>
@@ -19,15 +19,15 @@ export const Leftbar = () => {
             <span className="leftbarListItemText">検索</span>
           </li>
           <li className="leftbarListItem">
-            <i class="fa-solid fa-bell"></i>
+            <i className="fa-solid fa-bell"></i>
             <span className="leftbarListItemText">通知</span>
           </li>
           <li className="leftbarListItem">
-            <i class="fa-solid fa-message"></i>
+            <i className="fa-solid fa-message"></i>
             <span className="leftbarListItemText">メッセージ</span>
           </li>
           <li className="leftbarListItem">
-            <i class="fa-solid fa-bookmark"></i>
+            <i className="fa-solid fa-bookmark"></i>
             <span className="leftbarListItemText">ブックマーク</span>
           </li>
           <li className="leftbarListItem">
