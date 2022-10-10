@@ -2,11 +2,11 @@ import { Users } from "../../dummyData";
 import { Online } from "../online/Online";
 import "./Rightbar.css";
 
-export const Rightbar = ({ profile }) => {
+export const Rightbar = ({ user }) => {
   return (
     <div className=" rightbar">
       <div className=" rightbarWrapper">
-        {profile ? (
+        {user ? (
           <>
             <h4 className="rightbarTitle">ユーザー情報</h4>
             <div className="rightbarInfo">
