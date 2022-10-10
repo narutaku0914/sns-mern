@@ -5,14 +5,14 @@ import { Post } from "../post/Post";
 import { Share } from "../share/Share";
 import "./Timeline.css";
 
-export const Timeline = () => {
+export const Timeline = ({ username }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const fetchPost = async () => {
-      const response = await axios.get(
-        "/posts/timeline/632851a4da4037c85875f77f"
-      );
+      const response = username
+        ? await axios.get(`/posts/profile/${username}`)
+        : await axios.get("/posts/timeline/632851a4da4037c85875f77f");
       console.log(response.data);
       setPosts(response.data);
     };

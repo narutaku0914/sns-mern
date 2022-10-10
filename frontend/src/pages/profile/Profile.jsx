@@ -33,7 +33,7 @@ export const Profile = () => {
             </div>
           </div>
           <div className="profileRightBottom">
-            <Timeline />
+            <Timeline username="narutaku" />
             <Rightbar profile />
           </div>
         </div>
