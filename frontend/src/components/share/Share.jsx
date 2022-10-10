@@ -1,12 +1,16 @@
 import { Avatar } from "@mantine/core";
 import "./Share.css";
 
-export const Share = () => {
+export const Share = ({ user }) => {
+  const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <Avatar src="/assets/person/1.jpeg" className="shareProfileImg" />
+          <Avatar
+            src={PUBLIC_FOLDER + user.profilePicture}
+            className="shareProfileImg"
+          />
           <input
             type="text"
             className="shareInput"
