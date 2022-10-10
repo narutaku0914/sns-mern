@@ -1,6 +1,7 @@
 import { Avatar } from "@mantine/core";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { format } from "timeago.js";
 import "./Post.css";
 
 export const Post = ({ post }) => {
@@ -29,11 +30,10 @@ export const Post = ({ post }) => {
           <div className="postTopLeft">
             <Avatar
               src={PUBLIC_FOLDER + user.profilePicture}
-              alt=""
               className="postProfileImg"
             />
             <span className="postUserName">{user.username}</span>
-            <span className="postDate">{post.updatedAt}</span>
+            <span className="postDate">{format(post.createdAt)}</span>
           </div>
           <div className="postTopRight">
             <i className="fa-solid fa-ellipsis-vertical"></i>
