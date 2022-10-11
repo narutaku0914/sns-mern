@@ -11,14 +11,24 @@ import {
   Button,
   Title,
 } from "@mantine/core";
+import { useRef } from "react";
 
 export const Login = () => {
+  const email = useRef();
+  const password = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(email.current.value);
+    console.log(password.current.value);
+  };
+
   return (
     <div className="login">
       <div className="loginWrapper">
         <div className="loginLeft">
           <h3 className="loginLogo">MERN</h3>
-          <span className="logoDescription">Real SNS</span>
+          <span className="logoDescription">自作SNS</span>
         </div>
         <div className="loginRight">
           <Container size="xl" mx={30}>
@@ -33,15 +43,18 @@ export const Login = () => {
             </Title>
             <Paper withBorder shadow="md" p={40} mt={50} radius="md">
               <TextInput
+                type="email"
                 label="Eメールアドレス"
                 placeholder="you@mantine.dev"
                 required
+                ref={email}
               />
               <PasswordInput
                 label="パスワード"
                 placeholder="Your password"
                 required
                 mt="md"
+                ref={password}
               />
               <Group position="apart" mt="md">
                 <Checkbox label="ログイン情報を保存する" />
@@ -53,7 +66,7 @@ export const Login = () => {
                   パスワードを忘れましたか？
                 </Anchor>
               </Group>
-              <Button fullWidth mt="xl">
+              <Button fullWidth mt="xl" onClick={(e) => handleSubmit(e)}>
                 サインイン
               </Button>
             </Paper>
