@@ -8,19 +8,19 @@ import { Topbar } from "../../components/topbar/Topbar";
 import "./Profile.css";
 import { useParams } from "react-router-dom";
 
-export const Profile = () => {
+export const Profile = ({ user }) => {
   const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
 
-  const username = useParams().username;
+  // const username = useParams().username;
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const response = await axios.get(`/users?username=${username}`);
-      setUser(response.data);
-    };
-    fetchUser();
-  }, [username]);
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     const response = await axios.get(`/users?username=${username}`);
+  //     setUser(response.data);
+  //   };
+  //   fetchUser();
+  // }, [username]);
 
   return (
     <>
