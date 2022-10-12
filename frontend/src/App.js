@@ -16,10 +16,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={user ? <Home /> : <Login />} />
+        <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
         <Route
           path="/profile/:username"
-          element={user ? <Profile user={user} /> : <Login />}
+          element={user ? <Profile user={user} /> : <Navigate to="/login" />}
         />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         <Route

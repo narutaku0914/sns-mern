@@ -1,4 +1,3 @@
-import "./Login.css";
 import {
   TextInput,
   PasswordInput,
@@ -12,8 +11,10 @@ import {
   Title,
 } from "@mantine/core";
 import { useRef, useContext } from "react";
+import { Link } from "react-router-dom";
 import { loginCall } from "../../dispatch";
 import { AuthContext } from "../../state/AuthContext";
+import "./Login.css";
 
 export const Login = () => {
   const email = useRef();
@@ -32,8 +33,6 @@ export const Login = () => {
       dispatch
     );
   };
-
-  console.log(user);
 
   return (
     <div className="login">
@@ -84,11 +83,7 @@ export const Login = () => {
             </Paper>
             <Text color="dimmed" size="sm" align="center" mt={5}>
               登録はまだですか？{" "}
-              <Anchor
-                href="#"
-                size="sm"
-                onClick={(event) => event.preventDefault()}
-              >
+              <Anchor component={Link} to="/register" size="sm">
                 アカウントを新規作成する
               </Anchor>
             </Text>
