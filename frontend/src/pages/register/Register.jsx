@@ -29,7 +29,7 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password.current.value !== passwordConfirm.current.value) {
-      passwordConfirm.current.setCustomValidity("パスワードが違います。");
+      alert("パスワードが違います。");
     } else {
       try {
         const newUser = {
