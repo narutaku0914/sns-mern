@@ -1,9 +1,13 @@
 import { Avatar, Indicator, Input } from "@mantine/core";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../state/AuthContext";
 // import { IconMessage, IconNotification, IconSearch } from "@tabler/icons";
 import "./Topbar.css";
 
 export const Topbar = () => {
+  const { user } = useContext(AuthContext);
+  const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
@@ -33,7 +37,9 @@ export const Topbar = () => {
             </Indicator>
           </div>
         </div>
-        <Avatar src="/assets/person/1.jpeg" radius={500} />
+        <Link to={`/profile/${user.username}`}>
+          <Avatar src={PUBLIC_FOLDER + user.profilePicture} radius={500} />
+        </Link>
       </div>
     </div>
   );

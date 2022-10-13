@@ -1,26 +1,12 @@
 import { Avatar } from "@mantine/core";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { Leftbar } from "../../components/leftbar/Leftbar";
 import { Rightbar } from "../../components/rightbar/Rightbar";
 import { Timeline } from "../../components/timeline/Timeline";
 import { Topbar } from "../../components/topbar/Topbar";
 import "./Profile.css";
-import { useParams } from "react-router-dom";
 
 export const Profile = ({ user }) => {
   const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
-  // const [user, setUser] = useState({});
-
-  // const username = useParams().username;
-
-  // useEffect(() => {
-  //   const fetchUser = async () => {
-  //     const response = await axios.get(`/users?username=${username}`);
-  //     setUser(response.data);
-  //   };
-  //   fetchUser();
-  // }, [username]);
 
   return (
     <>
