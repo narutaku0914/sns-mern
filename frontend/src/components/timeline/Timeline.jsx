@@ -1,28 +1,28 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import { AuthContext } from "../../state/AuthContext";
 import { Post } from "../post/Post";
 import { Share } from "../share/Share";
 import "./Timeline.css";
 
-export const Timeline = ({ user }) => {
+export const Timeline = ({ username }) => {
   const [posts, setPosts] = useState([]);
-  const username = user.username;
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchPost = async () => {
       const response = username
         ? await axios.get(`/posts/profile/${username}`)
-        : await axios.get("/posts/timeline/632851a4da4037c85875f77f");
+        : await axios.get(`/posts/timeline/${user._id}`);
       setPosts(response.data);
     };
     fetchPost();
-  }, [username]);
+  }, [username, user._id]);
 
   return (
     <div className="timeline">
       <div className="timelineWrapper">
-        <Share user={user} />
+        <Share />
         {posts.map((post) => (
           <Post key={post._id} post={post} />
         ))}
