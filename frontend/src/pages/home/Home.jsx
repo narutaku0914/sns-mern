@@ -23,7 +23,7 @@ export const Home = () => {
       <Topbar />
       <div className="homeContainer">
         <Leftbar />
-        <Timeline user={user} />
+        <Timeline username={username} />
         <Rightbar />
       </div>
     </>

@@ -1,8 +1,11 @@
 import { Avatar } from "@mantine/core";
+import { useContext } from "react";
+import { AuthContext } from "../../state/AuthContext";
 import "./Share.css";
 
-export const Share = ({ user }) => {
+export const Share = () => {
   const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
+  const { user } = useContext(AuthContext);
   return (
     <div className="share">
       <div className="shareWrapper">
