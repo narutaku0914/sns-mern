@@ -1,11 +1,13 @@
 import { Avatar } from "@mantine/core";
 import axios from "axios";
-import { useRef, useContext } from "react";
+import { useRef, useContext, useState } from "react";
 import { AuthContext } from "../../state/AuthContext";
 import "./Share.css";
 
 export const Share = () => {
   const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
+  const [file, setFile] = useState();
+
   const { user } = useContext(AuthContext);
   const description = useRef();
 
@@ -42,9 +44,16 @@ export const Share = () => {
         <hr className="shareHr" />
         <form className="shareButtons" onSubmit={(e) => handleSubmit(e)}>
           <div className="shareOptions">
-            <div className="shareOption">
+            <label className="shareOption" for="file">
               <i className="fa-solid fa-image"></i>
-            </div>
+              <input
+                type="file"
+                id="file"
+                accept=".png, .jpeg, /jpg"
+                style={{ display: "none" }}
+                onChange={(e) => setFile(e.target.files[0])}
+              />
+            </label>
             <div className="shareOption">
               <i className="fa-solid fa-video"></i>
             </div>
