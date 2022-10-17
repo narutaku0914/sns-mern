@@ -3,6 +3,7 @@ import { Online } from "../online/Online";
 import "./Rightbar.css";
 
 export const Rightbar = ({ user }) => {
+  const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
     <div className=" rightbar">
       <div className=" rightbarWrapper">
@@ -25,12 +26,12 @@ export const Rightbar = ({ user }) => {
         ) : (
           <>
             <div className="eventCOntainer">
-              <img src="/assets/star.png" alt="" className="starImg" />
+              <img src="star.png" alt="" className="starImg" />
               <span className="eventText">
                 <b>フォロワー限定イベント</b>開催中!
               </span>
             </div>
-            <img src="/assets/ad.jpeg" alt="" className="eventImg" />
+            <img src={PUBLIC_FOLDER + "/ad.jpeg"} alt="" className="eventImg" />
             <h4 className="rightbarTitle">オンラインの友達</h4>
             <ul className="rightbarFriendList">
               {Users.map((user) => (
