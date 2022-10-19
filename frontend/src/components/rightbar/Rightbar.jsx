@@ -26,7 +26,11 @@ export const Rightbar = ({ user }) => {
         ) : (
           <>
             <div className="eventCOntainer">
-              <img src="star.png" alt="" className="starImg" />
+              <img
+                src={PUBLIC_FOLDER + "star.png"}
+                alt=""
+                className="starImg"
+              />
               <span className="eventText">
                 <b>フォロワー限定イベント</b>開催中!
               </span>
