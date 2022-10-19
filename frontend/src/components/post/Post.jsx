@@ -58,7 +58,7 @@ export const Post = ({ post }) => {
           </div>
           <div className="postBottomRight">
             <span className="postCommentCounter">
-              {post.comment}件のコメント
+              {post.comment || 0}件のコメント
             </span>
           </div>
         </div>
